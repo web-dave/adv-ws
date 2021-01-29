@@ -9,6 +9,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
@@ -26,7 +28,9 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({ maxAge: 100 })
   ],
   bootstrap: [AppComponent]
 })

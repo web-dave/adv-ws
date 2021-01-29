@@ -1,15 +1,15 @@
 import { IBook } from '../shared/book';
 
-export const bookStoreName = 'book';
+export const bookStoreName = 'bookStoreName';
 
 export interface IBookState {
   books: IBook[];
 }
 
-export const initialBooksState: IBookState = {
+export const initialBookState: IBookState = {
   books: [
     {
-      title: 'Design Patterns',
+      title: 'Design Patternse',
       subtitle: 'Elements of Reusable Object-Oriented Software',
       isbn: '978-0-20163-361-0',
       abstract:
