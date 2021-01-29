@@ -12,6 +12,7 @@ export const typeIntoInput = (
   if (text2 && err2) {
     cy.get(`@${name}`).type(text2);
     cy.get('.mat-error').should('contain.text', err2);
+    cy.get(`@${name}`).clear();
   }
   cy.get(`@${name}`).type(text);
   cy.get('.mat-error').should('not.exist');

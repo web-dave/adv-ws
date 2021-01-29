@@ -1,10 +1,11 @@
 import { typeIntoInput } from '../type-new-book';
 
 describe('Book New', () => {
+  let numberOfBooks = 0;
+  const randomISBN = String(Math.floor(1000000000000 + Math.random() * 900000));
   before(() => {
     cy.visit('/');
   });
-  let numberOfBooks = 0;
   it('I want to enter the create Form', () => {
     cy.get('ws-book-list .mat-list-item-content').as('books');
     cy.get('@books').then(books => (numberOfBooks = books.length));
@@ -14,14 +15,11 @@ describe('Book New', () => {
   });
   it('I want to type some stuff', () => {
     context('ISBN', () => {
-      const randomISBN = String(
-        Math.floor(1000000000000 + Math.random() * 900000)
-      );
       typeIntoInput(
         'isbn',
-        randomISBN.substr(0, 5),
+        randomISBN,
         'ISBN is required',
-        randomISBN.substr(5),
+        randomISBN.substr(0, 5),
         'ISBN has to be 13 characters long'
       );
     });
@@ -38,5 +36,9 @@ describe('Book New', () => {
     cy.get('ws-book-list .mat-list-item-content').then(
       books => numberOfBooks === books.length - 1
     );
+    cy.get('ws-book-list').contains('Hurbel Wonz');
+  });
+  after(() => {
+    cy.request('DELETE', 'http://localhost:4730/books/' + randomISBN);
   });
 });
