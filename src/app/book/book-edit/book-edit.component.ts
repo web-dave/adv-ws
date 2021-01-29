@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Book } from '../shared/book';
+import { IBook } from '../shared/book';
 import { BookDataService } from '../shared/book-data.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { BookDataService } from '../shared/book-data.service';
 })
 export class BookEditComponent implements OnInit, OnDestroy {
   sink = new Subscription();
-  book: Book;
+  book: IBook;
 
   constructor(
     private route: ActivatedRoute,

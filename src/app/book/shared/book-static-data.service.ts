@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Book } from './book';
+import { IBook } from './book';
 
 @Injectable()
 export class BookStaticDataService {
-  staticBookData: Book[] = [
+  staticBookData: IBook[] = [
     {
       title: 'Design Patterns',
       subtitle: 'Elements of Reusable Object-Oriented Software',
@@ -48,19 +48,19 @@ export class BookStaticDataService {
 
   constructor() {}
 
-  getBooks(): Book[] {
+  getBooks(): IBook[] {
     return this.staticBookData;
   }
 
-  getBook(isbn: string): Book {
+  getBook(isbn: string): IBook {
     return this.staticBookData[0];
   }
 
-  updateBook(book: Book): Book {
+  updateBook(book: IBook): IBook {
     return book;
   }
 
-  createBook(book: Book): Book {
+  createBook(book: IBook): IBook {
     this.staticBookData.push(book);
     return book;
   }

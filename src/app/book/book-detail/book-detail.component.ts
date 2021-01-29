@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Book } from '../shared/book';
+import { IBook } from '../shared/book';
 import { BookDataService } from '../shared/book-data.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { BookDataService } from '../shared/book-data.service';
   templateUrl: 'book-detail.component.html'
 })
 export class BookDetailComponent implements OnInit {
-  public book$: Observable<Book>;
+  public book$: Observable<IBook>;
 
   constructor(
     private route: ActivatedRoute,

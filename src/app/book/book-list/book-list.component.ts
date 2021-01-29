@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Book } from '../shared/book';
+import { IBook } from '../shared/book';
 import { BookDataService } from '../shared/book-data.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { BookDataService } from '../shared/book-data.service';
   templateUrl: 'book-list.component.html'
 })
 export class BookListComponent implements OnInit {
-  books$: Observable<Book[]>;
+  books$: Observable<IBook[]>;
 
   constructor(private bookData: BookDataService) {}
 

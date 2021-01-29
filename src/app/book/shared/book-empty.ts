@@ -1,6 +1,6 @@
-import { Book } from './book';
+import { IBook } from './book';
 
-export function emptyBook(): Book {
+export function emptyBook(): IBook {
   return {
     id: '',
     title: '',

@@ -1,4 +1,4 @@
-export interface Book {
+export interface IBook {
   id?: string;
   title: string;
   subtitle: string;
@@ -10,4 +10,5 @@ export interface Book {
     name: string;
     url: string;
   };
+  cover?: string;
 }

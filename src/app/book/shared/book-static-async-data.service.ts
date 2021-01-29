@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Book } from './book';
+import { IBook } from './book';
 
 @Injectable()
 export class BookStaticAsyncDataService {
-  staticBookData: Book[] = [
+  staticBookData: IBook[] = [
     {
       title: 'Design Patterns',
       subtitle: 'Elements of Reusable Object-Oriented Software',
@@ -49,19 +49,19 @@ export class BookStaticAsyncDataService {
 
   constructor() {}
 
-  getBooks(): Observable<Book[]> {
+  getBooks(): Observable<IBook[]> {
     return of(this.staticBookData);
   }
 
-  getBookByIsbn(_isbn: string): Observable<Book> {
+  getBookByIsbn(_isbn: string): Observable<IBook> {
     return of(this.staticBookData[0]);
   }
 
-  updateBook(book: Book): Observable<Book> {
+  updateBook(book: IBook): Observable<IBook> {
     return of(book);
   }
 
-  createBook(book: Book): Observable<Book> {
+  createBook(book: IBook): Observable<IBook> {
     this.staticBookData.push(book);
     return of(book);
   }

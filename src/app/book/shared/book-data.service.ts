@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Book } from './book';
+import { IBook } from './book';
 
 @Injectable()
 export class BookDataService {
@@ -9,19 +9,19 @@ export class BookDataService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.endpoint}`);
+  getBooks(): Observable<IBook[]> {
+    return this.http.get<IBook[]>(`${this.endpoint}`);
   }
 
-  getBookByIsbn(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`${this.endpoint}/${isbn}`);
+  getBookByIsbn(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(`${this.endpoint}/${isbn}`);
   }
 
-  createBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(`${this.endpoint}`, book);
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>(`${this.endpoint}`, book);
   }
 
-  updateBook(isbn: string, vector: any): Observable<Book> {
-    return this.http.patch<Book>(`${this.endpoint}/${isbn}`, vector);
+  updateBook(isbn: string, vector: any): Observable<IBook> {
+    return this.http.patch<IBook>(`${this.endpoint}/${isbn}`, vector);
   }
 }
