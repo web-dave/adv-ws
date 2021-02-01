@@ -23,7 +23,6 @@ export class BookListComponent implements OnInit {
     this.books$ = this.store
       .select(getBooksSelector)
       .pipe(tap(state => console.log(state)));
-    this.store.dispatch(new WaitForBooks());
     // setInterval(() => {
     //   this.store.dispatch({ type: 'TEST IT' });
     // }, 1500);

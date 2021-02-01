@@ -1,5 +1,5 @@
 import { IBookActions, LOAD_BOOKS } from './book.actions';
-import { IBookState, initialBookState } from './book.store';
+import { bookEntityAdapter, IBookState, initialBookState } from './book.store';
 
 export function booksReducer(
   state = initialBookState,
@@ -7,10 +7,8 @@ export function booksReducer(
 ): IBookState {
   switch (action.type) {
     case LOAD_BOOKS:
-      return {
-        ...state,
-        books: action.books
-      };
+      return bookEntityAdapter.setAll(action.books, state);
+
     default: {
       return state;
     }
