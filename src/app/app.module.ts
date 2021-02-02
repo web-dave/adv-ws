@@ -1,6 +1,6 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,10 +11,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BookModule } from './book/book.module';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
+import { createCustomElement } from '@angular/elements';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavigationComponent],
+  declarations: [MainNavigationComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -26,8 +29,15 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
-  ],
-  bootstrap: [AppComponent]
+    MatListModule,
+    BookModule
+  ]
 })
-export class AppModule {}
+export class AppModule implements DoBootstrap {
+  constructor(private injector: Injector) {
+    const bookFeature = createCustomElement(BookComponent, { injector });
+    console.log(bookFeature);
+    customElements.define('book-shop', bookFeature);
+  }
+  ngDoBootstrap() {}
+}

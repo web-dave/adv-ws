@@ -38,6 +38,13 @@ import { BookDataService } from './shared/book-data.service';
     BookEditComponent,
     BookNewComponent
   ],
+  exports: [
+    BookComponent,
+    BookListComponent,
+    BookDetailComponent,
+    BookEditComponent,
+    BookNewComponent
+  ],
   providers: [BookDataService]
 })
 export class BookModule {}
