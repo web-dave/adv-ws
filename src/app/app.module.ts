@@ -10,7 +10,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BookModule } from './book/book.module';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { createCustomElement } from '@angular/elements';
