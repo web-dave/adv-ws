@@ -12,9 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
+import { CdComponent } from './cd/cd.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavigationComponent],
+  declarations: [AppComponent, MainNavigationComponent, CdComponent],
   imports: [
     BrowserModule,
     FormsModule,

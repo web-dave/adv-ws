@@ -1,5 +1,7 @@
 <mat-card *ngIf="book$ | async as book" class="example-card">
   <mat-card-header>
+    <!-- <h2>{{ format(i) }}</h2> -->
+    <h2>{{ i | unicorn }}</h2>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ book.title }}</mat-card-title>
     <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
@@ -17,5 +19,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-button [routerLink]="['edit']">EDIT</button>
+    <button mat-button>CD</button>
   </mat-card-actions>
 </mat-card>
